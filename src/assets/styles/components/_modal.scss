@@ -37,6 +37,16 @@ dialog.modal {
     }
 }
 
+// Lock scroll on both the viewport scroller (html) and body. Reserve the
+// classic scrollbar gutter and paint it with the theme body color so the
+// vacated track does not show through as a black strip beside the dialog
+// scrim when Search (or any modal dialog) opens (kestra-io/docs#5367).
+html:has(dialog.modal[open]) {
+    overflow: hidden;
+    scrollbar-gutter: stable;
+    background-color: var(--ks-background-body);
+}
+
 body:has(dialog.modal[open]) {
     overflow: hidden;
 }
